@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+    <title>Basic Details</title>
+    <!-- Custom CSS -->
+    <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet">
+    <link rel="stylesheet" href="nalin.css">
+    <link rel="html" href="dashboard.html">
+    <!-- Custom CSS -->
+    <link href="dist/css/style.min.css" rel="stylesheet">
+     <!-- poup css -->
+     <style>
+        .pop{
+            width: 240px;
+            height: 160px;
+            background-color: wheat;
+            color: orange;
+            margin-left: 40%;
+            top:0;
+            position: absolute;
+            transition: traslate(-50%,-50%) scale(0.1);
+            visibility: hidden;
+            transition: transform 0.4s,top 0.4s;
+
+        }
+        .open-popup{
+            visibility: visible;
+            top: 50%;
+            transition: traslate(-50%,-50%) scale(4);
+
+
+        }
+       
+    </style>
+    
+</head>
+
+<body>
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar" data-navbarbg="skin5">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <div class="navbar-header" data-logobg="skin5">
+                    <!-- This is for the sidebar toggle which is visible on mobile only -->
+                    <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                    <!-- ============================================================== -->
+                    <!-- Logo -->
+                    <!-- ============================================================== -->
+                    <a class="navbar-brand" href="dashboard.html">
+                        <!-- Logo icon -->
+                        <b class="logo-icon p-l-10">
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                            <!-- Dark Logo icon -->
+                            <img src="IMG/mkce name pic.png" alt="homepage" class="light-logo" style="margin-left:-12px;" />
+                           
+                        </b>
+                       
+                    </a>
+                    <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="ti-more"></i></a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav float-left mr-auto">
+                        <li class="nav-item d-none d-md-block"><a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a></li>
+                        <!-- ============================================================== -->
+                        <!-- create new -->
+                        <!-- ============================================================== -->
+                        
+                        
+                        
+                    </ul>
+                    <!-- ============================================================== -->
+                    <!-- bulb icon script -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav float-right">
+                     
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+                            <div class="dropdown-menu dropdown-menu-right user-dd animated">
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i> Inbox</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-settings m-r-5 m-l-5"></i> Account Setting</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
+                                <div class="dropdown-divider"></div>
+                                <div class="p-l-30 p-10"><a href="javascript:void(0)" class="btn btn-sm btn-success btn-rounded">View Profile</a></div>
+                            </div>
+                        </li>
+                       
+                    </ul>
+                </div>
+            </nav>
+        
+   
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar" data-sidebarbg="skin5">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar" style="margin-left: -10px;">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav" class="p-t-30">
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard.html" aria-expanded="false"><img src="IMG/dash.png"><span class="hide-menu">&nbsp;Dashboard</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="charts.html" aria-expanded="false"><img src="IMG/profile.png"><span class="hide-menu">&nbsp;Profile</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><img src="IMG/Eprofile.png"><span class="hide-menu">&nbsp;Edit Profile</span></a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item"><a href="Editprofile.html" class="sidebar-link"><img src="IMG/basic details.png"><span class="hide-menu">&nbsp;Basic details</span></a></li>
+                               <li class="sidebar-item"><a href="form-academics.html" class="sidebar-link"><img src="IMG/academic details.png"><span class="hide-menu"> &nbsp;Acadamic Details </span></a></li>
+                               <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><img src="IMG/exam details.png"><span class="hide-menu"> &nbsp;Exam Details</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="bus.html" aria-expanded="false"><img src="IMG/busN.png"><span class="hide-menu">&nbsp;Bus Booking</span></a></li> 
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="bus.html" aria-expanded="false"><img src="IMG/busN.png"><span class="hide-menu">&nbsp;Complaints</span></a></li> 
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="bus.html" aria-expanded="false"><img src="IMG/busN.png"><span class="hide-menu">&nbsp;Feedback</span></a></li> 
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-elements.html" aria-expanded="false"><img src="IMG/keys.png"><span class="hide-menu">&nbsp;Change Password</span></a></li>
+                             <!-- End Sidebar navigation -->
+                            </div>
+                            <!-- End Sidebar scroll-->
+                        </aside>
+<!-- ============================================================== -->
+
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+     <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Edit profile</h4>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Personal Information</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="background-color: white;margin-top: 20px;margin-left: 15px;padding-right: 15px;">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row" >
+            <div class="col-12">
+                <div class="card" style="margin: 0;padding: 0;">
+                    <div class="card-body" style="margin: 0;padding: 0;">
+                        <h5 class="card-title"><h3>Profile Information</h3></h5>
+                        <nav class="navbar navbar-light bg-light">
+                            <form class="form-inline">
+                                <a href="Editprofile.html"><button class="btn btn-outline-success" type="button" style="background-color: rgb(30, 30, 244);color: rgb(254, 253, 253);padding: 5px; border: 10px solid rgb(215, 235, 228);">Basics</button>
+
+                             <a href="form-academic-details.php"><button class="btn btn-outline-success" type="button" style="background-color: blue;color: white;margin-left: 20px;padding: 5px;">Academic Details</button></a> 
+                              <a href="form-family.php"><button class="btn btn-outline-success" type="button" style="background-color: blue;color: white;margin-left: 20px;padding: 5px;">Family Details</button></a>
+                             <a href="form-parent-meeting.php"> <button class="btn btn-outline-success" type="button" style="background-color: blue;color: white;margin-left: 20px;padding: 5px;">Parents Meeting</button></a>
+                             <a href="form-conselling.php"><button class="btn btn-outline-success" type="button" style="background-color: blue;color: white;margin-left: 20px;padding: 5px;">Counselling Details</button></a>
+                             <a href=""><button class="btn btn-outline-success" type="button" style="background-color: blue;color: white;margin-left: 20px;padding: 5px;">Medical Leave</button></a>
+                              <a href=""><button class="btn btn-outline-success" type="button" style="background-color: blue;color: white;margin-left: 20px;padding: 5px;">SWOT Analysis</button></a>
+                              
+                            </form>
+                          </nav>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card" style="margin: 0;padding: 0;">
+                    <div class="card-body" style="margin: 0;padding: 0;">
+                        <label for="">First Name</label>
+                        <h5 class="card-title"><input type="text" placeholder="Enter name" style="width: 300px;padding: 5px;border: 2px solid black;" ></h5>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="margin: 0;padding: 0;">
+                    <div class="card-body" style="margin: 0;padding: 0;">
+                        <label for="">Last Name</label>
+                        <h5 class="card-title"><input type="text" placeholder="Enter last name" style="width: 300px;padding: 5px;border: 2px solid black;"></h5>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="margin: 0;padding: 0;">
+                    <div class="card-body" style="margin: 0;padding: 0;">
+                        <label for="">Gender</label>
+                        <h5 class="card-title"><select class="select2 form-control custom-select" style="width: 280px; height:36px;border: 2px solid black;">
+
+                        
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        
+                        
+                    </select></h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="margin: 0;padding: 0;">
+                    <div class="card-body" style="margin: 0;padding: 0;">
+                        <label for="">Register Number</label>
+                        <h5 class="card-title"><input type="text" placeholder="Enter reg No"  style="width:300px;padding: 5px;border: 2px solid black;"></h5>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="margin: 0;padding: 0;">
+                    <div class="card-body" style="margin: 0;padding: 0;">
+                        <label for="">Programm</label>
+                        <h5 class="card-title"><input type="text" placeholder="Enter Programe"  style="width: 300px;padding: 5px;border: 2px solid black;"></h5>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="margin: 0;padding: 0;">
+                    <div class="card-body" style="margin: 0;padding: 0;">
+                        <label for="">Department</label>
+                        <h5 class="card-title"><select class="select2 form-control custom-select" style="width:280px; height:36px;border: 2px solid black;">
+
+                        
+                            <option value="IT">Information Technology</option>
+                            <option value="AI">Artificial Intelligence</option>
+                        
+                        
+                    </select></h5>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="margin: 0;padding: 0;">
+                    <div class="card-body" style="margin: 0;padding: 0;">
+                        <label for="">Batch</label>
+                        <h5 class="card-title"><input type="text" placeholder="Enter batch"  style="width:300px;border: 2px solid black;padding: 5px;"></h5>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="margin: 0;padding: 0;">
+                    <div class="card-body" style="margin: 0;padding: 0;">
+                        <label for="">DOB</label>
+                        <h5 class="card-title"><input type="date" placeholder="Enter DOB" style="width: 300px;padding: 5px;border: 2px solid black;"></h5>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="margin: 0;padding: 0;">
+                    <div class="card-body" style="margin: 0;padding: 0;">
+                        <label for="">Blood Group</label>
+                        <h5 class="card-title"><input type="text" placeholder="Enter Blood Group"  style="width: 280px;padding: 5px;border: 2px solid black;"></h5>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="margin: 0;padding: 0;">
+                    <div class="card-body" style="margin: 0;padding: 0;">
+                        <label for="">Mobile No</label>
+                        <h5 class="card-title"><input type="text" placeholder="Enter mobile no" style="width:300px;border: 2px solid black;padding: 5px;"></h5>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="margin: 0;padding: 0;">
+                    <div class="card-body" style="margin: 0;padding: 0;">
+                        <label for="">Email ID</label>
+                        <h5 class="card-title"><input type="text" placeholder="Enter email"  style="width: 300px;padding: 5px;border: 2px solid black;"></h5>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="margin: 0;padding: 0;">
+                    <div class="card-body" style="margin: 0;padding: 0;">
+                        <label for="">Parent Mobile</label>
+                        <h5 class="card-title"><input type="text" placeholder="Enter parent mobile"  style="width: 280px;padding: 5px;border: 2px solid black;"></h5>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card" style="margin: 0;padding: 0;">
+                    <div class="card-body" style="margin: 0;padding: 0;">
+                        <label for="">Languages Known</label>
+                        <h5 class="card-title"><input type="text" placeholder="Enter Languages Known"  style="width:400px;border: 2px solid black;padding: 5px;"></h5>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card" style="margin: 0;padding: 0;">
+                    <div class="card-body" style="margin: 0;padding: 0;">
+                        <label for="">Aadhar Number</label>
+                        <h5 class="card-title"><input type="text" placeholder="Enter Aadhar number"  style="width:400px;border: 2px solid black;padding: 5px;"></h5>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="margin: 0;padding: 0;">
+                    <div class="card-body" style="margin: 0;padding: 0;">
+                        <label for="">Hosteller/Dayscholar</label>
+                        <h5 class="card-title"><select class="select2 form-control custom-select" style="width:300px; height:36px;border: 2px solid black;">
+
+                        
+                            <option value="h">Hosteller</option>
+                            <option value="d">Day Scholar</option>
+                        
+                        
+                    </select></h5>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="margin: 0;padding: 0;">
+                    <div class="card-body" style="margin: 0;padding: 0;">
+                        <label for="">Room Number</label>
+                        <h5 class="card-title"><input type="text" placeholder="Enter room number"  style="width: 300px;padding: 5px;border: 2px solid black;"></h5>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="margin: 0;padding: 0;">
+                    <div class="card-body" style="margin: 0;padding: 0;">
+                        <label for="">Place of stay</label>
+                        <h5 class="card-title"><input type="text" placeholder="Enter place of stay"  style="width: 280px;padding: 5px;border: 2px solid black;"></h5>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card" style="margin: 0;padding: 0;">
+                    <div class="card-body" style="margin: 0;padding: 0;">
+                        <label for="">Permanant Address</label>
+                        <h5 class="card-title"><input type="text" placeholder="Permanant address"  style="width:400px;border: 2px solid black;padding: 5px;"></h5>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card" style="margin: 0;padding: 0;">
+                    <div class="card-body" style="margin: 0;padding: 0;">
+                        <label for="">Temperory address</label>
+                        <h5 class="card-title"><input type="text" placeholder="Temperory address"  style="width:400px;border: 2px solid black;padding: 5px;"></h5>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card" style="margin: 0;padding: 0;">
+                    <div class="card-body" style="margin: 0;padding: 0;">
+                        <label for="">Room Number</label>
+                        <h5 class="card-title"><input type="text" placeholder="Enter room number"  style="width: 200px;padding: 5px;border: 2px solid black;"></h5>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card" style="margin: 0;padding: 0;">
+                    <div class="card-body" style="margin: 0;padding: 0;">
+                        <label for="">Room Number</label>
+                        <h5 class="card-title"><input type="text" placeholder="Enter room number"  style="width: 200px;padding: 5px;border: 2px solid black;"></h5>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card" style="margin: 0;padding: 0;">
+                    <div class="card-body" style="margin: 0;padding: 0;">
+                        <label for="">Room Number</label>
+                        <h5 class="card-title"><input type="text" placeholder="Enter room number"  style="width: 200px;padding: 5px;border: 2px solid black;"></h5>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card" style="margin: 0;padding: 0;">
+                    <div class="card-body" style="margin: 0;padding: 0;">
+                        <label for="">Room Number</label>
+                        <h5 class="card-title"><input type="text" placeholder="Enter room number"  style="width: 200px;padding: 5px;border: 2px solid black;"></h5>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="margin: 0;padding: 0;">
+                    <div class="card-body" style="margin: 0;padding: 0;">
+                        <label for="">Profile Photo</label>
+                        <h5 class="card-title"><input type="file" placeholder="Enter place of stay"  style="width: 300px;padding: 5px;border: 2px solid black;"></h5>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="margin: 0;padding: 0;">
+                    <div class="card-body" style="margin: 0;padding: 0;">
+                        <label for="">Fathers Photo</label>
+                        <h5 class="card-title"><input type="file" placeholder="Enter place of stay"  style="width: 300px;padding: 5px;border: 2px solid black;"></h5>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="margin: 0;padding: 0;">
+                    <div class="card-body" style="margin: 0;padding: 0;">
+                        <label for="">Mothers photo</label>
+                        <h5 class="card-title"><input type="file" placeholder="Enter place of stay"  style="width: 280px;padding: 5px;border: 2px solid black;"></h5>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-top">
+                <div class="card-body">
+                    <button type="submit" class="btn btn-primary" 
+                    style="margin-left: 550px;" onclick="openpop()">Submit</button>
+                </div>
+            </div>
+        </div>
+        <div class="pop" id="po" style="border: 3px solid black;">
+            <h3><p style="text-align: center;">Thank you</p></h3>
+            <p style="padding-left: 50px;">YOUR RECORDS HAS BEEN SUBMITTED</p>
+           <center><button onclick="closepop()" style="border-radius: 25px;color: black;background-color: rgb(149, 255, 9);padding: 10PX;width: 100px;">OK</button></center> 
+
+        </div>
+    
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    
+        </div>
+        </div>
+        </div>
+        </div>
+    
+
+<!-- ============================================================== -->
+
+                        <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
+    <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="assets/extra-libs/sparkline/sparkline.js"></script>
+    <!--Wave Effects -->
+    <script src="dist/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="dist/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="dist/js/custom.min.js"></script>
+    <!--This page JavaScript -->
+    <!-- <script src="dist/js/pages/dashboards/dashboard1.js"></script> -->
+    <!-- Charts js Files -->
+    <script src="assets/libs/flot/excanvas.js"></script>
+    <script src="assets/libs/flot/jquery.flot.js"></script>
+    <script src="assets/libs/flot/jquery.flot.pie.js"></script>
+    <script src="assets/libs/flot/jquery.flot.time.js"></script>
+    <script src="assets/libs/flot/jquery.flot.stack.js"></script>
+    <script src="assets/libs/flot/jquery.flot.crosshair.js"></script>
+    <script src="assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+    <script src="dist/js/pages/chart/chart-page-init.js"></script>
+<!-- ============================================================== -->
+<script>
+    let pop = document.getElementById("po");
+    function openpop(){
+        pop.classList.add("open-popup")
+
+    }
+    function closepop(){
+        pop.classList.remove("open-popup")
+    }
+    
+</script>
+<!-- ============================================================== -->
+</body>
+</html>        
+    
+    
+

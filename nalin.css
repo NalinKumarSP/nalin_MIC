@@ -1,0 +1,35 @@
+footer p {
+    display: flex;
+    align-items: center;
+    text-align: justify;
+    color: aliceblue;
+    max-width: 400px;
+   }
+.foot{
+    background-color: #3e5569;
+    margin: 0px;
+}
+.row h5{
+    color: #fff;
+}
+.bg-cyan{
+    background-color: gray;
+}
+.docfoot{
+    color:black;
+    margin-left: 150px;
+    }
+    .pass{
+        padding-top: 20px;
+
+font-size: 15px;
+    }
+    #submitbuttom {
+        background-color: #28b779;
+        border-color: #28b779;
+        border-radius: 10px;
+        color: #fff;
+    }
+    #aline label{
+        margin-left: -10px;
+    }
